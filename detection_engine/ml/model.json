@@ -1,0 +1,34 @@
+// predict.js
+// Lightweight ML risk prediction (browser-safe)
+
+import model from "./model.js";
+
+export function mlPredictRisk(features) {
+  let score = model.bias;
+  const reasons = [];
+  const signals = {};
+
+  for (const key in model.weights) {
+    if (features[key] !== undefined) {
+      score += features[key] * model.weights[key];
+    }
+  }
+
+  score = Math.max(0, Math.min(30, Math.round(score)));
+
+  if (score >= 15) {
+    reasons.push("ML model indicates high phishing likelihood");
+    signals.mlHighRisk = true;
+  }
+
+  if (features.credentialHarvesting) {
+    reasons.push("ML detected credential harvesting pattern");
+    signals.mlCredentialPattern = true;
+  }
+
+  return {
+    score,
+    reasons,
+    signals
+  };
+}

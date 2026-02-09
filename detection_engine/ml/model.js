@@ -1,0 +1,25 @@
+// model.js
+// Lightweight ML model weights (browser-compatible)
+
+const model = {
+  bias: -15,
+  weights: {
+    urlLength: 0.15,
+    domainLength: 0.2,
+    entropy: 4.0,
+
+    hasIPAddress: 20,
+    hasManySubdomains: 10,
+    usesShortener: 15,
+    suspiciousTLD: 15,
+
+    brandImpersonation: 25,
+    authLure: 15,
+
+    credentialHarvesting: 30,
+    redirectAbuse: 20,
+    newDomain: 15
+  }
+};
+
+export default model;
