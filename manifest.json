@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "WhatsApp Web Phishing Detection",
+  "description": "Real-time phishing detection and attack type classification for WhatsApp Web using multi-layer analysis.",
+  "version": "1.0.0",
+
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "notifications",
+    "storage"
+  ],
+
+  "host_permissions": [
+    "https://web.whatsapp.com/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["https://web.whatsapp.com/*"],
+      "js": [
+        "extension/content/dom_observer.js",
+        "extension/content/content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "background": {
+    "service_worker": "extension/background/background.js",
+    "type": "module"
+  },
+
+  "action": {
+    "default_popup": "extension/popup/popup.html",
+    "default_title": "WhatsApp Phishing Detector"
+  }
+}
