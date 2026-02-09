@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WhatsApp Phishing Detector</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>🛡️ Phish Detector</h1>
+    <p class="subtitle">WhatsApp Web Protection</p>
+
+    <div class="status">
+      <span class="dot"></span>
+      <span>Active on WhatsApp Web</span>
+    </div>
+
+    <hr />
+
+    <div class="stats">
+      <h2>Detection Stats</h2>
+      <div class="stat-row">
+        <span>Total Links Scanned</span>
+        <span id="totalScanned">0</span>
+      </div>
+      <div class="stat-row">
+        <span>Threats Detected</span>
+        <span id="threatsDetected">0</span>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="info">
+      <p>
+        This extension analyzes URLs received on WhatsApp Web using
+        multi-layer phishing detection and attack classification.
+      </p>
+    </div>
+
+    <footer>
+      <small>Defensive Security Project</small>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
